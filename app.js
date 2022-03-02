@@ -57,6 +57,12 @@ const gridDisplay = document.querySelector('#grid');
 //functions
 const createBoard = () => {
     for (let i = 0; i < cardArray.length; i++) {
-
+        const card = document.createElement('img');
+        card.setAttribute('src', 'assets/images/blank.png');
+        card.setAttribute('data-id', i);
+        gridDisplay.appendChild(card)
+        console.log(card, i)
     }
 }
+
+createBoard()
