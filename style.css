@@ -7,3 +7,12 @@ body{
     justify-content: center;
     margin: auto;
 }
+#grid{
+    max-width: 60%;
+    min-height: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+#grid img:hover{
+    border-radius: 15px;
+}
