@@ -50,3 +50,6 @@ const cardArray = [
 ];
 //here we shuffle the array randomly
 cardArray.sort(() => 0.5 - Math.random());
+
+//Getting the Grid from index.html
+const gridDisplay = document.querySelector('#grid');
