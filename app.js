@@ -48,3 +48,5 @@ const cardArray = [
         img: 'assets/images/pizza.png',
     }
 ];
+//here we shuffle the array randomly
+cardArray.sort(() => 0.5 - Math.random());
