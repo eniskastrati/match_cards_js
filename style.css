@@ -14,5 +14,5 @@ body{
     flex-wrap: wrap;
 }
 #grid img:hover{
-    border-radius: 15px;
+    /* border-radius: 15px; */
 }
