@@ -53,8 +53,8 @@ cardArray.sort(() => 0.5 - Math.random());
 
 //Getting the Grid from index.html
 const gridDisplay = document.querySelector('#grid');
-const cardsChosen = [];
-const cardsChosenIds = [];
+let cardsChosen = [];
+let cardsChosenIds = [];
 const cardsWon = [];
 
 
@@ -80,16 +80,31 @@ function flipCard() {
 };
 
 function checkMatch() {
+    const optionOneId = cardsChosenIds[0];
+    const optionTwoId = cardsChosenIds[1];
+
     const cards = document.querySelectorAll('img');
     console.log('checkin for a match!')
-    if(cardsChosen[0] === cardsChosen[1]){
-        alert('You found a match!')
-        cards[cardsChosenIds[0]].setAttribute('src', 'assets/images/white.png');
-        cards[cardsChosenIds[0]].setAttribute('src', 'assets/images/white.png');
-        cards[cardsChosenIds[0]].removeEventListener('click', flipCard);
-        cards[cardsChosenIds[1]].removeEventListener('click', flipCard);
-        cardsWon.push(cardsChosen);
+    if(optionOneId == optionTwoId){
+        alert('You clicked the same image!');
+        optionOneId = cardsChosenIds[null];
+        optionTwoId = cardsChosenIds[null];
+        
     }
+    if(optionOneId === optionTwoId){
+        alert('You found a match!')
+        cards[optionOneId].setAttribute('src', 'assets/images/white.png');
+        cards[optionTwoId].setAttribute('src', 'assets/images/white.png');
+        cards[optionOneId].removeEventListener('click', flipCard);
+        cards[optionTwoId].removeEventListener('click', flipCard);
+        cardsWon.push(cardsChosen);
+    } else {
+        cards[optionOneId].setAttribute('src', 'assets/images/blank.png');
+        cards[optionTwoId].setAttribute('src', 'assets/images/blank.png');
+        alert('Sorry try again!')
+    }
+    cardsChosen = [];
+    cardsChosenIds = [];
 };
 
 //calling the functions
